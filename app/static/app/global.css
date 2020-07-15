@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+html, body {
+    background-color: var(--lightless) !important;
+    font-family: Roboto, sans-serif;
+    color: var(--dark) !important;
+    --blue: #4978FF;
+    --light: #F2F2F2;
+    --lightless: #f0f5f1;
+    --red: #FF4447;
+    --green: #0FC47A;
+    --yellow: #FFDF4C;
+    --dark: #211e1e;
+    --semi-dark: #332e2e;
+    --grey: #3a3a3a;
+}
+
+* {
+    list-style: none !important;
+    outline: none !important;
+    text-decoration: none !important;
+}
+
+.subtitle {
+    color: var(--semi-dark);
+}
+
+.bg-lightblue {
+    background-color: rgba(73, 120, 255, .4);
+}
+
+.bg-lightgreen {
+    background-color: rgba(15, 196, 122, .6);
+}
+
+.board {
+    border-radius: 4px
+}
+
+.btn {
+    font-weight: 600 !important
+}
+
+.btn-primary {
+    background-color: var(--blue) !important;
+    border-color: var(--blue) !important
+}
+
+.text-green {
+    color: var(--green) !important
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--grey) !important;
+}
+
+.hover-opacity:hover {
+    opacity: .85;
+    transition: .25s
+}
+
+label {
+    margin: 0 0 .1rem .1rem;
+    font-weight: 500
+}
+
+.maxwidth-85 {
+    max-width: 85%
+}
+
+.form-control, .btn {
+    border-radius: 6px !important
+}
+
+.form-control:hover, .btn:hover, .form-control:focus, .btn:focus, .hover-y {
+    transform: translateY(-1.5px);
+    transition: .3s;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .10) !important
+}
+
+.form-control:focus {
+    border-color: transparent !important
+}
+
+.btn-light:hover {
+    background-color: #f8f9fa !important
+}

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Freelancer
+from .models import Freelancer, Contact
 
 
 class FreelancerForm(forms.ModelForm):
@@ -9,12 +9,10 @@ class FreelancerForm(forms.ModelForm):
     biography = forms.CharField(label='Biography', widget=forms.Textarea(attrs={'rows': 3}), max_length=400,
                                 empty_value=False, required=True, help_text='Max. 400 characters.')
     email = forms.EmailField(label='Email', max_length=200, empty_value=False, required=True)
-    password = forms.CharField(label='Password', widget=forms.PasswordInput, max_length=50, min_length=8,
-                               empty_value=False, required=True)
 
     class Meta:
         model = Freelancer
-        fields = ['name', 'username', 'biography', 'email', 'password']
+        fields = ['name', 'username', 'biography', 'email']
 
 
 class FreelancerSearchForm(forms.ModelForm):
@@ -23,3 +21,10 @@ class FreelancerSearchForm(forms.ModelForm):
     class Meta:
         model = Freelancer
         fields = ['search']
+
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields= '__all__'
+        exclude = ['freelancer']

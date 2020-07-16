@@ -21,7 +21,7 @@ html, body {
     text-decoration: none !important;
 }
 
-.subtitle {
+.subtitle, .text-semidark {
     color: var(--semi-dark);
 }
 
@@ -48,6 +48,14 @@ html, body {
 
 .text-green {
     color: var(--green) !important
+}
+
+.text-blue {
+    color: var(--blue) !important
+}
+
+.text-red {
+    color: var(--red) !important
 }
 
 .nav-link {
@@ -77,7 +85,7 @@ label {
     border-radius: 6px !important
 }
 
-.form-control:hover, .btn:hover, .form-control:focus, .btn:focus, .hover-y {
+.form-control:hover, .btn:hover, .form-control:focus, .btn:focus, .hover-y:hover {
     transform: translateY(-1.5px);
     transition: .3s;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .10) !important

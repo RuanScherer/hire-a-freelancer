@@ -13,7 +13,10 @@ def set_rows(value, arg):
     return value.as_widget(attrs={'rows': arg})
 
 
-@register.filter(name="add_input_attrs")
-def add_input_attrs(value, args):
-    print(args)
-    return value.as_widget(attrs={'class': args.style_classes, 'placeholder': args.placeholder})
+@register.filter(name="limit_characters")
+def limit_characters(string, limit):
+    if len(string) > limit:
+        limit += 3
+        return string[0:-3] + "..."
+    else:
+        return string

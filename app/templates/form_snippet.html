@@ -1,0 +1,14 @@
+{% load filters %}
+{% for field in form %}
+    <div class="form-group">
+        {{ field.label_tag }}
+        {{ field|add_class:'form-control form-control-lg' }}
+        {% if field.errors %}
+            <div class="text-danger font-weight-bold m-0 mt-1 ml-1">
+                {{ field.errors }}
+            </div>
+        {% elif field.help_text %}
+            <small class="dark">{{ field.help_text|safe }}</small>
+        {% endif %}
+    </div>
+{% endfor %}

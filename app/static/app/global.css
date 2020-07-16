@@ -61,8 +61,12 @@ html, body {
 }
 
 label {
-    margin: 0 0 .1rem .1rem;
+    margin: auto auto 4px 4px !important;
     font-weight: 500
+}
+
+.form-group > small {
+    margin-left: 4px !important
 }
 
 .maxwidth-85 {
@@ -85,4 +89,9 @@ label {
 
 .btn-light:hover {
     background-color: #f8f9fa !important
+}
+
+.errorlist {
+    margin: 0 !important;
+    padding: 0 !important
 }

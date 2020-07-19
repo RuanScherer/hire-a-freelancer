@@ -11,8 +11,8 @@
         </nav>
     </header>
     <div class="h-100 py-4 px-3 container row mx-auto d-flex flex-wrap bg-lightblue board">
-        <img src="{% static 'app/images/teams.svg' %}" alt="Hello, colaborator" class="col-sm-5 w-100">
-        <div class="col-sm-7 w-100 d-flex flex-column justify-content-center align-items-center">
+        <img src="{% static 'app/images/hire.svg' %}" alt="Hello, colaborator" class="col-sm-6 w-100">
+        <div class="col-sm-6 w-100 d-flex flex-column justify-content-center align-items-center">
             <h1 class="m-0">Hire a Freelancer</h1>
             <h4 class="m-0 subtitle maxwidth-85">Look for services offered and help by hiring a freelancer</h4>
             <form action="/search-freelancers" method="GET" class="d-flex flex-wrap align-items-center justify-content-center mt-4">
@@ -102,7 +102,8 @@
             <div class="card-body d-flex flex-column">
                 <h4 class="text-semidark mb-0">{{ freelancer.name }}</h4>
                 <span class="text-muted">@{{ freelancer.username }}</span>
-                <p class="card-text">{{ freelancer.biography|limit_characters:200 }}</p>
+                <p class="card-text my-2">{{ freelancer.biography|limit_characters:200 }}</p>
+                <a href="{% url 'app:freelancer' freelancer.id %}" class="btn btn-link text-green align-self-start p-0">See more</a>
             </div>
         </div>
     </div>

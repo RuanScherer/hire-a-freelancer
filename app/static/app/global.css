@@ -33,6 +33,10 @@ html, body {
     background-color: rgba(15, 196, 122, .6);
 }
 
+.bg-lightyellow {
+    background-color: rgba(255, 223, 76, .6);
+}
+
 .board {
     border-radius: 4px
 }
@@ -91,6 +95,10 @@ label {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .10) !important
 }
 
+.btn-link:hover {
+    box-shadow: none !important
+}
+
 .form-control:focus {
     border-color: transparent !important
 }
@@ -102,4 +110,8 @@ label {
 .errorlist {
     margin: 0 !important;
     padding: 0 !important
+}
+
+.w-fit {
+    width: fit-content !important
 }

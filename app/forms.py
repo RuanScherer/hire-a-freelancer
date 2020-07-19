@@ -7,7 +7,8 @@ class FreelancerForm(forms.ModelForm):
     username = forms.CharField(label='Username', max_length=45, min_length=3, empty_value=False, required=True,
                                help_text='People will be able to find you directly by your username.')
     biography = forms.CharField(label='Biography', widget=forms.Textarea(attrs={'rows': 3}), max_length=400,
-                                empty_value=False, required=True, help_text='Max. 400 characters.')
+                                empty_value=False, required=True, help_text='Speak objectively about yourself and your '
+                                                                            'work. (Max. 400 characters)')
     email = forms.EmailField(label='Email', max_length=200, empty_value=False, required=True)
 
     class Meta:
@@ -26,5 +27,5 @@ class FreelancerSearchForm(forms.ModelForm):
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields= '__all__'
+        fields = '__all__'
         exclude = ['freelancer']

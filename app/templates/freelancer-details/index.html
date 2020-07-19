@@ -1,0 +1,65 @@
+{% extends 'base.html'  %}
+{% load static %}
+{% load filters %}
+{% block content %}
+<main class="w-100 text-center">
+    <header class="w-100 my-3">
+        <nav class="nav d-flex flex-wrap justify-content-center">
+            <a class="nav-link p-0 my-2 mx-3" href="/">Home</a>
+            <a class="nav-link p-0 my-2 mx-3" href="/join">Join</a>
+            <a class="nav-link p-0 my-2 mx-3" href="/manage-account">Change my account data</a>
+        </nav>
+        {% if not freelancer %}
+        <div class="h-100 mt-3 py-4 px-3 container row mx-auto d-flex flex-wrap bg-lightyellow board">
+            <img src="{% static 'app/images/empty-result.svg' %}" alt="Hello, colaborator" class="col-sm-5 w-100">
+            <div class="col-sm-7 w-100 d-flex flex-column justify-content-center align-items-center">
+                <h1 class="m-0">Oops!</h1>
+                <h4 class="m-0 subtitle maxwidth-85">It looks like you're looking for a freelancer not registered yet...</h4>
+            </div>
+        </div>
+        {% endif %}
+    </header>
+</main>
+
+{% if freelancer %}
+<section class="container p-0 my-4 mx-auto row d-flex justify-content-center flex-wrap">
+    <div class="col-md-6 w-100">
+        <div class="card shadow-sm">
+            <div class="card-body d-flex flex-column">
+                <section>
+                    <h3 class="text-semidark mb-0">{{ freelancer.freelancer.name }}</h3>
+                    <span class="text-muted">@{{ freelancer.freelancer.username }}</span>
+                    <p class="card-text my-2">{{ freelancer.freelancer.biography }}</p>
+                </section>
+                <section class="mt-3 d-flex flex-column">
+                    <h3 class="text-semidark">Contato</h3>
+                    {% if freelancer.contact %}
+                    <a href="{{ freelancer.contact.facebook }}" target="_blank" rel="noopener" class="card-text my-1 w-fit" style="color: #1877F2">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        Facebook
+                    </a>
+                    <a href="{{ freelancer.contact.instagram }}" target="_blank" rel="noopener" class="card-text my-1 w-fit" style="color: #ed4956">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                        Instagram
+                    </a>
+                    <p class="card-text my-1 w-fit" style="color: #07bc4c">
+                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                        {{ freelancer.contact.whatsapp }}
+                    </p>
+                    {% else %}
+                    <p class="card-text my-2">Este freelancer não cadastrou nenhuma informação de contato. :(</p>
+                    {% endif %}
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="container col-md-6 mx-auto">
+        <div class="d-flex flex-column align-items-center bg-lightblue board py-4 px-3 mt-3 mt-md-0 text-center">
+            <img src="{% static 'app/images/rating.svg' %}" alt="Hello, colaborator" class="w-50 mb-3">
+            <h3 class="m-0">Do you know {{ freelancer.freelancer.name }}?</h3>
+            <h5 class="m-0 subtitle maxwidth-85">Leave your review and help other people find the best freelancers!</h5>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock content %}

@@ -40,3 +40,8 @@ def show_freelancers(request):
             search = freelancer_search_form.cleaned_data["search"]
             freelancers = FreelancerService.show(search)
             return render(request, 'search-freelancers/index.html', {'freelancers': freelancers})
+
+
+def show_freelancer_details(request, id):
+    freelancer = FreelancerService.get_details(id)
+    return render(request, 'freelancer-details/index.html', {'freelancer': freelancer})

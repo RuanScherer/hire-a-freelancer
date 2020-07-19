@@ -21,7 +21,7 @@
             {% csrf_token %}
             <h3>Personal data</h3>
             {% include "form_snippet.html" with form=freelancer_form %}
-            <h3 class="mt-4">Contact and Social Networks <span>(optional)</span></h3>
+            <h3 class="mt-4">Contact and Social Networks (optional)</h3>
             {% include "form_snippet.html" with form=contact_form %}
             <button type="submit" class="btn btn-lg btn-light text-green">Join now</button>
         </form>

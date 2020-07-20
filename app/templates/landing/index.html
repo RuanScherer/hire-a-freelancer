@@ -87,6 +87,7 @@
     </div>
 </section>
 
+{% if last_registered %}
 <section class="container p-0 my-4 mx-auto row d-flex justify-content-center flex-wrap">
     <h2 class="col-12 text-blue text-center">Latest registered freelancers</h2>
     <h4 class="col-12 subtitle text-center mb-3">Meet the people who are part of the platform</h4>
@@ -122,6 +123,7 @@
     </div>
     {% endfor %}
 </section>
+{% endif %}
 
 <section class="container py-4 px-3 my-4 mx-auto row d-flex justify-content-center align-items-center flex-wrap board bg-lightgreen">
     <div class="col-sm-6 p-2 w-100">

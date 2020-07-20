@@ -26,8 +26,8 @@ def show_register(request):
             instagram = contact_form.cleaned_data["instagram"]
             whatsapp = contact_form.cleaned_data["whatsapp"]
             new_contact = Contact(facebook=facebook, instagram=instagram, whatsapp=whatsapp)
-            FreelancerService.store(new_freelancer, new_contact)
-            return redirect('app:landing')
+            registered_freelancer = FreelancerService.store(new_freelancer, new_contact)
+            return redirect(f'{registered_freelancer.id}/freelancer')
     else:
         freelancer_form = FreelancerForm()
         contact_form = ContactForm()

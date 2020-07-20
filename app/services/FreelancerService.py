@@ -9,6 +9,7 @@ def store(p_freelancer, p_contact):
                             email=p_freelancer.email)
     freelancer.save()
     store_freelancer_contact(freelancer, p_contact)
+    return freelancer
 
 
 def last_registered():

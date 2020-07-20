@@ -40,7 +40,12 @@ def get_details(id):
         freelancer = Freelancer.objects.get(id=id)
         try:
             freelancer_contact = Contact.objects.get(freelancer=id)
-            freelancer_data = {'freelancer': freelancer, 'contact': freelancer_contact}
+            if freelancer_contact.facebook is not None and \
+                    freelancer_contact.instagram is not None and \
+                    freelancer_contact.whatsapp is not None:
+                freelancer_data = {'freelancer': freelancer, 'contact': freelancer_contact}
+            else:
+                freelancer_data = {'freelancer': freelancer, 'contact': False}
         except Contact.DoesNotExist:
             freelancer_data = {'freelancer': freelancer, 'contact': False}
     except Freelancer.DoesNotExist:

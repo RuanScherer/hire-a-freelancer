@@ -11,8 +11,18 @@ class Freelancer(models.Model):
 
 
 class Contact(models.Model):
-    freelancer = models.ForeignKey(Freelancer, on_delete=models.DO_NOTHING)
+    freelancer = models.ForeignKey(Freelancer, on_delete=models.CASCADE)
     facebook = models.CharField(null=True, blank=True, max_length=250, unique=True)
     instagram = models.CharField(null=True, blank=True, max_length=250, unique=True)
     whatsapp = models.CharField(null=True, blank=True, max_length=15, unique=True)
 
+
+class Rate(models.Model):
+    rate_choices = [
+        (1, 'BAD'),
+        (2, 'MEDIUM'),
+        (3, 'GOOD'),
+        (4, 'AWESOME')
+    ]
+    freelancer = models.ForeignKey(Freelancer, on_delete=models.CASCADE)
+    rate = models.IntegerField(null=False, blank=False, choices=rate_choices)

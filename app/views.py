@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import FreelancerForm, FreelancerSearchForm, ContactForm
-from .models import Freelancer, Contact
-from .services import FreelancerService
+from .forms import FreelancerForm, FreelancerSearchForm, ContactForm, RateForm
+from .models import Freelancer, Contact, Rate
+from .services import FreelancerService, RateService
 
 
 # Create your views here.
@@ -26,7 +26,7 @@ def show_register(request):
             whatsapp = contact_form.cleaned_data["whatsapp"]
             new_contact = Contact(facebook=facebook, instagram=instagram, whatsapp=whatsapp)
             FreelancerService.store(new_freelancer, new_contact)
-            return redirect('landing')
+            return redirect('app:landing')
     else:
         freelancer_form = FreelancerForm()
         contact_form = ContactForm()
@@ -45,3 +45,24 @@ def show_freelancers(request):
 def show_freelancer_details(request, id):
     freelancer = FreelancerService.get_details(id)
     return render(request, 'freelancer-details/index.html', {'freelancer': freelancer})
+
+
+def show_rate_a_freelancer(request, id):
+    freelancer = FreelancerService.get_details(id)
+    if request.method == "POST":
+        post = request.POST.copy()
+        post["freelancer"] = freelancer["freelancer"]
+        rate_form = RateForm(post)
+        if rate_form.is_valid():
+            freelancer = freelancer["freelancer"]
+            rate = rate_form.cleaned_data["rate"]
+            new_rate = Rate(freelancer=freelancer, rate=rate)
+            RateService.store(new_rate)
+            return redirect('app:success')
+        else:
+            return render(request, 'rate-a-freelancer/index.html', {'freelancer': freelancer, 'error': True})
+    return render(request, 'rate-a-freelancer/index.html', {'freelancer': freelancer})
+
+
+def show_rate_success(request):
+    return render(request, 'rate-success/index.html')

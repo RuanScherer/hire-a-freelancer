@@ -58,10 +58,6 @@ html, body {
     color: var(--blue) !important
 }
 
-.text-red {
-    color: var(--red) !important
-}
-
 .nav-link {
     font-weight: 600;
     color: var(--grey) !important;
@@ -72,9 +68,17 @@ html, body {
     transition: .25s
 }
 
-label {
+label:not(.form-check-label) {
     margin: auto auto 4px 4px !important;
+}
+
+label {
     font-weight: 500
+}
+
+.form-check:hover, .form-check > input:hover, .form-check > label:hover {
+    cursor: pointer;
+    opacity: .9;
 }
 
 .form-group > small {
@@ -85,7 +89,7 @@ label {
     max-width: 85%
 }
 
-.form-control, .btn {
+.form-control, .btn, .rate-option {
     border-radius: 6px !important
 }
 
@@ -114,4 +118,8 @@ label {
 
 .w-fit {
     width: fit-content !important
+}
+
+.rate-option {
+    background-color: #fff;
 }

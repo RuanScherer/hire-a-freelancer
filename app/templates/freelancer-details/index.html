@@ -47,7 +47,7 @@
                         {{ freelancer.contact.whatsapp }}
                     </p>
                     {% else %}
-                    <p class="card-text my-2">Este freelancer não cadastrou nenhuma informação de contato. :(</p>
+                    <p class="card-text my-2">This freelancer doesn't have contact information. :(</p>
                     {% endif %}
                 </section>
             </div>
@@ -58,6 +58,7 @@
             <img src="{% static 'app/images/rating.svg' %}" alt="Hello, colaborator" class="w-50 mb-3">
             <h3 class="m-0">Do you know {{ freelancer.freelancer.name }}?</h3>
             <h5 class="m-0 subtitle maxwidth-85">Leave your review and help other people find the best freelancers!</h5>
+            <a href="{% url 'app:rate-a-freelancer' freelancer.freelancer.id %}" class="btn btn-lg btn-primary mt-3">Rate now</a>
         </div>
     </div>
 </section>

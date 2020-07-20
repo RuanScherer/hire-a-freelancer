@@ -1,5 +1,5 @@
 from django import forms
-from .models import Freelancer, Contact
+from .models import Freelancer, Contact, Rate
 
 
 class FreelancerForm(forms.ModelForm):
@@ -29,3 +29,9 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = '__all__'
         exclude = ['freelancer']
+
+
+class RateForm(forms.ModelForm):
+    class Meta:
+        model = Rate
+        fields = '__all__'

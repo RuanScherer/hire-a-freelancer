@@ -132,3 +132,14 @@ label, .text-500 {
 .rate-option {
     background-color: #fff;
 }
+
+::-webkit-scrollbar {
+	position: fixed;
+	width: 8px;
+	background-color: transparent !important
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #cecece;
+	border-radius: 8px !important
+}

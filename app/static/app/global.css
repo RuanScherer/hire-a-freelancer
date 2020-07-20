@@ -10,6 +10,7 @@ html, body {
     --red: #FF4447;
     --green: #0FC47A;
     --yellow: #FFDF4C;
+    --orange: #ffc34c;
     --dark: #211e1e;
     --semi-dark: #332e2e;
     --grey: #3a3a3a;
@@ -58,6 +59,14 @@ html, body {
     color: var(--blue) !important
 }
 
+.text-red {
+    color: var(--red) !important
+}
+
+.text-orange {
+    color: var(--orange) !important
+}
+
 .nav-link {
     font-weight: 600;
     color: var(--grey) !important;
@@ -72,7 +81,7 @@ label:not(.form-check-label) {
     margin: auto auto 4px 4px !important;
 }
 
-label {
+label, .text-500 {
     font-weight: 500
 }
 

@@ -30,9 +30,25 @@
                     <h3 class="text-semidark mb-0">{{ freelancer.freelancer.name }}</h3>
                     <span class="text-muted">@{{ freelancer.freelancer.username }}</span>
                     <p class="card-text my-2">{{ freelancer.freelancer.biography }}</p>
+                    <p class="card-text text-semidark my-1 text-500">
+                        {% if freelancer.rate != 0 %}
+                            Rating:
+                            {% if freelancer.rate <= 1.5 %}
+                                <span class="text-red">Bad</span>
+                            {% elif freelancer.rate <= 2.5 %}
+                                <span class="text-orange">Reasonable</span>
+                            {% elif freelancer.rate <= 3.5 %}
+                                <span class="text-green">Good</span>
+                            {% else %}
+                                <span class="text-blue">Awesome</span>
+                            {% endif %}
+                        {% else %}
+                            No ratings available for this freelancer.
+                        {% endif %}
+                    </p>
                 </section>
                 <section class="mt-3 d-flex flex-column">
-                    <h3 class="text-semidark">Contato</h3>
+                    <h3 class="text-semidark">Contact</h3>
                     {% if freelancer.contact %}
                     <a href="{{ freelancer.contact.facebook }}" target="_blank" rel="noopener" class="card-text my-1 w-fit" style="color: #1877F2">
                         <i class="fa fa-facebook-square" aria-hidden="true"></i>

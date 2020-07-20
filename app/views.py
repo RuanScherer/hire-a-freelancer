@@ -8,6 +8,7 @@ from .services import FreelancerService, RateService
 
 def show_landing(request):
     last_registered = FreelancerService.last_registered()
+    print(last_registered)
     return render(request, 'landing/index.html', {'last_registered': last_registered})
 
 

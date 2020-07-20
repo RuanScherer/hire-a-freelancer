@@ -41,6 +41,22 @@
                 <h4 class="text-semidark mb-0">{{ freelancer.name }}</h4>
                 <span class="text-muted">@{{ freelancer.username }}</span>
                 <p class="card-text my-2">{{ freelancer.biography|limit_characters:200 }}</p>
+                <p class="card-text text-semidark my-1 text-500">
+                    {% if freelancer.rate != 0 %}
+                        Rating:
+                        {% if freelancer.rate <= 1.5 %}
+                            <span class="text-red">Bad</span>
+                        {% elif freelancer.rate <= 2.5 %}
+                            <span class="text-orange">Reasonable</span>
+                        {% elif freelancer.rate <= 3.5 %}
+                            <span class="text-green">Good</span>
+                        {% else %}
+                            <span class="text-blue">Awesome</span>
+                        {% endif %}
+                    {% else %}
+                        No ratings available for this freelancer.
+                    {% endif %}
+                </p>
                 <div class="d-flex align-items-center flex-wrap">
                     <a href="{% url 'app:freelancer' freelancer.id %}" class="btn btn-link text-green align-self-start p-0 my-1 mr-1 ml-0">See more</a>
                     <a href="{% url 'app:rate-a-freelancer' freelancer.id %}" class="btn btn-link text-blue align-self-start p-0 m-1">Rate</a>

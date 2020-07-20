@@ -1,6 +1,7 @@
-from ..models import Freelancer, Contact
-from django.db.models import Q
+from ..models import Freelancer, Contact, Rate
+from django.db.models import Q, Avg
 from .ContactService import store_freelancer_contact
+from math import ceil
 
 
 def store(p_freelancer, p_contact):
@@ -11,12 +12,26 @@ def store(p_freelancer, p_contact):
 
 
 def last_registered():
-    return Freelancer.objects.order_by('-id')[:6]
+    freelancers = Freelancer.objects.order_by('-id')[:6]
+    for freelancer in freelancers:
+        rate = Rate.objects.filter(freelancer=freelancer.id).aggregate(Avg('rate'))
+        if rate["rate__avg"] is not None:
+            freelancer.rate = ceil(rate["rate__avg"])
+        else:
+            freelancer.rate = 0
+    return freelancers
 
 
 def show(search):
-    return Freelancer.objects.filter(Q(name__contains=search) | Q(username__contains=search) |
-                                     Q(biography__contains=search))
+    freelancers = Freelancer.objects.filter(Q(name__contains=search) | Q(username__contains=search) |
+                                            Q(biography__contains=search))
+    for freelancer in freelancers:
+        rate = Rate.objects.filter(freelancer=freelancer.id).aggregate(Avg('rate'))
+        if rate["rate__avg"] is not None:
+            freelancer.rate = ceil(rate["rate__avg"])
+        else:
+            freelancer.rate = 0
+    return freelancers
 
 
 def get_details(id):

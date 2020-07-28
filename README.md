@@ -25,7 +25,7 @@ Hire a Freelancer é uma plataforma que ajuda freelancers a aparecerem para pess
 
 #### Via terminal
 - Abra o terminal e navegue até um diretório de sua escolha.
-- Execute o comando `$ git clone https://github.com/RuanScherer/corona-status-web.git` para clonar o repositório (é necessário possuir o GIT instalado).
+- Execute o comando `$ git clone https://github.com/RuanScherer/hire-a-freelancer.git` para clonar o repositório (é necessário possuir o GIT instalado).
 - Instale o [Django](https://www.djangoproject.com/) e o pacote [mysqlclient](https://pypi.org/project/mysqlclient/).
 - Crie um banco de dados chamado `hire_a_freelancer` no seu servidor MySQL.
 - Execute o comando `$ python manage.py migrate` para estruturar o banco de dados.
